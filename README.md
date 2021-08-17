@@ -1,6 +1,6 @@
 
 # Projektname
-## Mensch ärgere dich nicht
+## "Mensch ärgere dich nicht"
 
 # Teammitglieder
 Listen Sie hier noch einmal alle Teammitglieder auf.
