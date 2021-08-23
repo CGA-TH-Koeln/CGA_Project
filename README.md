@@ -12,6 +12,7 @@
 
 - 3D Model eines Spielbretts wurde mittels Blender erstellt, zusätzlich wurde mit Photoshop eine Textur erstellt
 - 3D Model einer Spielfigur wurde mittels Blender erstellt, zusätzlich wurde mit Photoshop eine Textur erstellt
+- 3D Model eines Würfels wurde mittels Blender erstellt, zusätzlich wurden mit Photoshop 7 Texturen für die jeweiligen Augenanzeige + Startanzeige erstellt
 - 16 Figuren in 4 verschiedenen Farben werden auf Basis von 4 farbigen Texturen erstellt
 - Eine Figur kann sich mit W-A-S-D und Pfeiltasten bewegen (WASD auf X-Y Achse, Pfeiltasten (hoch runter auf Z) //diente um die Positionen der Laufpunkte auslesen zu lassen (Ausgabe mittels Leertaste)
 - Startpunkte, Laufpunkte, Endzonenpunkte werden ausgelesen
