@@ -22,6 +22,6 @@
 - Kamera Winkel verändern mittels O (hoch) und L (runter)
 - Diffuse Light + Specular Light wurden für die Optik hinzugefügt
 
-
+- OBJFileLoader wurde implementiert
 # Erklärvideo
 [Mensch ärgere dich nicht.mp4.zip](https://github.com/davidthkoeln/CGA_Project/files/7034645/Mensch.argere.dich.nicht.mp4.zip)
