@@ -24,3 +24,6 @@ Bspw.
 - Dynamische Kamera (Steuerung mittels Maus und "WASD" auf der Tastatur) (Carola und Armin)
 - Verschiedene Shaderprogramme (Wechsel mittels "s") (Carola)
 - ...
+
+# Quellenverzeichnis
+Listen Sie hier ALLE Quellen der genutzten Ressourcen auf.
