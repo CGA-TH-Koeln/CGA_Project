@@ -1,0 +1,27 @@
+# Blender MTL File: 'None'
+# Material Count: 2
+
+newmtl Cont
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.186956 0.167811
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures source\\Cont_Base_Color.png
+refl Textures source\\Cont_Metallic.png
+
+newmtl Ship
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.103220 0.167945 0.060950
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures source\\Ship_Base_Color.png
+map_Ns Textures source\\Ship_Roughness.png
+refl Textures source\\Ship_Metallic.png
