@@ -109,6 +109,7 @@ class Scene(private val window: GameWindow) {
         Player2.base?.translate(Vector3f(0f,0f,-10f))
 
         println("hakadsad")
+        println("test")
     }
 
     fun render(dt: Float, t: Float) {
