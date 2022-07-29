@@ -107,7 +107,8 @@ class Scene(private val window: GameWindow) {
         spotLight2.rotateWorld(Math.toRadians(-90.0).toFloat(),0f,0f)
         Player1.base?.translate(Vector3f(0f,0f,10f))
         Player2.base?.translate(Vector3f(0f,0f,-10f))
-        println("Test")
+
+        println("hakadsad")
     }
 
     fun render(dt: Float, t: Float) {
