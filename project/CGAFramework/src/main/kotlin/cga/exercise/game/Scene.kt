@@ -37,10 +37,9 @@ class Scene(private val window: GameWindow) {
     var spotLight2:SpotLight
     var staticColor=Vector3f(0f,1f,0f)
     var cXPos=0.0
-    val newTank= Tank()
-
-
-
+    val Player1=Tank()
+    val Player2=Tank()
+    var currentPlayer=Player1
 
     //scene setup
 
@@ -93,21 +92,21 @@ class Scene(private val window: GameWindow) {
 
         angle=Math.toRadians(-35.0).toFloat()
         newCam.preTranslate(Vector3f(0f,4f,10f))
-        newCam.rotate(angle,0f,0f)
-        newCam.parent=newTank.base
+        newCam.rotateWorld(angle,0f,0f)
+        newCam.parent=currentPlayer.base
 
         pointLight= PointLight(Vector3f(0f,0.5f,0f),Vector3f(0.6f,0.1f,0.9f))
         pointLight.parent=motorrad
 
         spotLight1=SpotLight(Vector3f(0f,0.5f,-2f),Vector3f(1f,1f,1f),Math.toRadians(60.0).toFloat(),Math.toRadians(30.0).toFloat())
-        spotLight1.rotate(Math.toRadians(-5.0).toFloat(),0f,0f)
+        spotLight1.rotateWorld(Math.toRadians(-5.0).toFloat(),0f,0f)
         spotLight1.parent=motorrad
 
         // Weitere Lichtquelle
         spotLight2=SpotLight(Vector3f(0f,5f,0f),Vector3f(1f,0f,0f),Math.toRadians(20.0).toFloat(),Math.toRadians(15.0).toFloat())
-        spotLight2.rotate(Math.toRadians(-90.0).toFloat(),0f,0f)
-        println(newTank.lifePoints)
-
+        spotLight2.rotateWorld(Math.toRadians(-90.0).toFloat(),0f,0f)
+        Player1.base?.translate(Vector3f(0f,0f,10f))
+        Player2.base?.translate(Vector3f(0f,0f,-10f))
     }
 
     fun render(dt: Float, t: Float) {
@@ -124,7 +123,8 @@ class Scene(private val window: GameWindow) {
         renderList[0].render(staticShader, staticColor)
       // }
       //  motorrad?.render(staticShader,newColor)//,Vector3f(1f,1f,1f))
-        newTank.render(staticShader)
+        Player1.render(staticShader)
+        Player2.render(staticShader)
 
 
     }
@@ -132,29 +132,34 @@ class Scene(private val window: GameWindow) {
     fun update(dt: Float, t: Float) {
         val z = 8f
         val angle = Math.toRadians(60.0).toFloat()
-        if (window.getKeyState(GLFW_KEY_W)) newTank.base?.translate(Vector3f(0f, 0f, -z * dt))
-            if (window.getKeyState(GLFW_KEY_A)) newTank.base!!.rotateOwn(0f, angle * dt, 0f)
-            if (window.getKeyState(GLFW_KEY_D)) newTank.base!!.rotateOwn(0f, -angle * dt, 0f)
+        if (window.getKeyState(GLFW_KEY_W)) currentPlayer.base?.translate(Vector3f(0f, 0f, -z * dt))
+            if (window.getKeyState(GLFW_KEY_A)) currentPlayer.base!!.rotate(0f, angle * dt, 0f)
+            if (window.getKeyState(GLFW_KEY_D)) currentPlayer.base!!.rotate(0f, -angle * dt, 0f)
 
-        if (window.getKeyState(GLFW_KEY_S)) newTank.base?.translate(Vector3f(0f, 0f, z * dt))
+        if (window.getKeyState(GLFW_KEY_S)) currentPlayer.base?.translate(Vector3f(0f, 0f, z * dt))
 //            if (window.getKeyState(GLFW_KEY_A)) newTank.base?.rotate(0f, angle * dt, 0f)
 //            if (window.getKeyState(GLFW_KEY_D)) newTank.base?.rotate(0f, -angle * dt, 0f)
 
     }
 
-    fun onKey(key: Int, scancode: Int, action: Int, mode: Int) {}
+    fun onKey(key: Int, scancode: Int, action: Int, mode: Int) {
+        if(key==GLFW_KEY_E&&action==GLFW_PRESS) newCam.parent=currentPlayer.barrel
+    }
 
     fun onMouseMove(xpos: Double, ypos: Double) {
         val dXPos = cXPos-xpos
 
-        val m=newCam.getCalculateViewMatrix().mul( newTank.base?.getWorldModelMatrix())
+        val m=newCam.getCalculateViewMatrix().mul( currentPlayer.base?.getWorldModelMatrix())
         val motopos= m.getColumn(3,Vector3f())
 
-        newCam.rotate(0f,Math.toRadians(dXPos*0.02).toFloat(),0f)
-        newTank.tower?.rotate(0f,Math.toRadians(dXPos*0.02).toFloat(),0f)
+        newCam.rotateWorld(0f,Math.toRadians(dXPos*0.02).toFloat(),0f)
+        currentPlayer.tower?.rotate(0f,Math.toRadians(dXPos*0.02).toFloat(),0f)
         //newCam.rotate(0f,Math.toRadians(dXPos*0.02).toFloat(),0f)
         cXPos=xpos
     }
 
+    fun aim(key:Int,action:Int){
+
+    }
     fun cleanup() {}
 }

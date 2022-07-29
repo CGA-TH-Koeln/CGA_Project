@@ -37,13 +37,13 @@ open class Transformable(private var modelMatrix: Matrix4f = Matrix4f(), var par
      * @param yaw radiant angle around y-axis ccw
      * @param roll radiant angle around z-axis ccw
      */
-    fun rotate(pitch: Float, yaw: Float, roll: Float) {
+    fun rotateWorld(pitch: Float, yaw: Float, roll: Float) {
         val m = Matrix4f()
         m.rotateXYZ(pitch,yaw,roll)
         m.mul(modelMatrix,modelMatrix)
        // throw NotImplementedError()
     }
-    fun rotateOwn(pitch: Float, yaw: Float, roll: Float) {
+    fun rotate(pitch: Float, yaw: Float, roll: Float) {
         val m = Matrix4f()
         m.rotateXYZ(pitch,yaw,roll)
         modelMatrix.mul(m,modelMatrix)

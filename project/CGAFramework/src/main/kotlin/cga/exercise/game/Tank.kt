@@ -1,5 +1,6 @@
 package cga.exercise.game
 
+import cga.exercise.components.geometry.Transformable
 import cga.exercise.components.shader.ShaderProgram
 import cga.framework.ModelLoader.loadModel
 

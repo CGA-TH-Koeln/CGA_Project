@@ -63,7 +63,7 @@ vec4 specterm(vec3 n,vec3 l,vec3 col){
    // float cosb = max(0.0, dot(r,v));
     vec3 specTex=invgamma(texture(spec,vertexData.tc).rgb)*col;
 
-    vec4 result= vec4(vec3(specTex*sCol),0f);
+    vec4 result= vec4(vec3(specTex*sCol),0.0);
     return vec4(result);
 }
 
