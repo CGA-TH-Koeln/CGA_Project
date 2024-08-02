@@ -16,7 +16,7 @@ Desktop.ini
 #Dev specific
 ## Compiled class file
 *.class
-.build
+build
 .gradle
 
 ## Log file
